@@ -1,7 +1,7 @@
 ---
-title: "Çalışmanızın Başlığı"
+title: "Fastfood Restorantlarındaki Ürünlerin Besin içeriği ve İnsan sağlığına Olan Etkilerinin Analizi"
 author: 
-  - İsim Soyisim[^1]
+  - Uğur Oruç[^1]
 bibliography: ../bibliography/biblio.bib
 csl: ../csl/apa-tr.csl
 header-includes:
@@ -25,7 +25,8 @@ urlcolor: blue
 fontsize: 12pt
 biblio-style: apalike
 abstract: |
-  Bu bölümde çalışmanızın özetini yazınız.
+
+ Bu çalışmada fastfood restorantlarının satmış olduğu fast food ürünlerinin kalori, toplam yağ, sodyum, trans yağ , şeker gibi besin içeriği değerleri incelenerek hangi restorantın sattığı ürünlerin insan sağlığı üzerinde daha zararlı etkilerinin olduğu anlaşılmaya çalışılmıştır. Bu doğrultuda literatür taraması yapılmış ve veri setindeki veriler baz alınarak grafikler oluşturulmuştur. Anova testi yapılarak bulgular desteklenmiş ve veri seti analiz edilmiştir. 
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FALSE)
@@ -34,56 +35,44 @@ knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FAL
 <!-- ======================================================================= -->
 <!-- ============================== NOTLAR ================================= -->
 <!-- ======================================================================= -->
-[^1]: Öğrenci Numarası, [Github Repo](https://github.com/KULLANICI_ADINIZ/REPO_ADINIZ)
+[^1]: 18080432, [Github Repo](https://github.com/uguroruc/FINAL-SINAVI)
 
-# Final Hakkında Önemli Bilgiler
-
-\colorbox{BurntOrange}{GITHUB REPO BAĞLANTINIZI BU DOSYANIN 37. SATIRINA YAZINIZ!}
-
-**Proje gönderimi, Github repo linki ile birlikte ekampus sistemine bir zip dosyası yüklenerek yapılacaktır. Sisteme zip dosyası yüklemezseniz ve Github repo linki vermezseniz ara sınav ve final sınavlarına girmemiş sayılırsınız.**
-
-**Proje klasörünüzü sıkıştırdıktan sonra (`OgrenciNumarasi.zip` dosyası) 9 Haziran 2023 23:59'a kadar *ekampus.ankara.edu.tr* adresine yüklemeniz gerekmektedir.**
-
-\colorbox{WildStrawberry}{Daha fazla bilgi için proje klasöründeki README.md dosyasını okuyunuz.}
 
 # Giriş
-Bu taslak size proje ödevinizi yazarken yardımcı olması amacıyla oluşturulmuştur. Ödevlerinizde, makalelerinizde, sunumlarınızda ve projelerinizde kullandığınız tüm bilgi kaynaklarına atıfta bulunmalısınız. Alıntı ve gönderme yapmak okuyuculara çalışmanızda kullandığınız/başvurduğunuz  kaynaklara ulaşma imkanı sağlar. **Her ne kadar kendi sözlerinizi kullanıyor olsanız da, başkalarına ait fikirleri çalışmanızda aktarıyorsanız bu fikirlerin kaynağını belgelemek zorundasınız. Aksi takdirde akademik intihal yapmış olursunuz.** Yazım konusunda @aydinonat:2007'ye başvurabilirsiniz. 
+Son zamanlarda hem lezzettli olması hem de pratik olması sebebiyle fastfood ürünleri özellikle günümüzde çok fazla rağbet görüyor. Bu nedenle günümüzde pek çok çeşit fastfood restorantı mevcuttur. Fastfood sistemi dünyada ilk kez Amerika’da McDonald kardeşlerin 1850’de Hamburg yöresinden gelen işçilerin tanıttığı hamburgeri temel alan fastfood sistemini 1950 yılında isletmeye açmaları ile başladığı söylenebilir[@elmaciouglu1996hizli]. 1950'li yıllarda McDonald ile başlayan fastfood serüveni popülerleşerek günümüze kadar gelmiştir. Günümüzde ise binlerce çeşit fastfood restorantı vardır. Ayrıca budenli popüler olamsının nedenleri arasında fastfood işletmelerinin popülerlik, standart lezzet ve kaliteye sahip olması ve fiziksel mekan özellikleri de büyük bir rol oynuyor[@adnan17yerli].Bu yüzden  günümüzde pek çok insan evde yemek yapmaya üşendiği veya pek vakti olmadığı için bu ürünleri sipariş vererek veya bizzat restoranta giderek  tüketiyor. Yapılan araştırmalar doğrultusunda Amerika'da temizlik ve yemek yapma süreleri karşılaştırıldığında yemek yapma süresinin çok az olduğu tespit edilmiştir[@jaworowska2013nutritional]. Çünkü Amerika'da fast food ürünleri insanlar tarafından çok tüketildiği için evde yemek yapma süresi çok az.Özellikle fastfood ürünlerinin en çok öğrenci grupları tercih ediyor.Araştırma sonuçlarına göre, öğrencilerin büyük çoğunluğu (%74,5) fast-food tüketmektedir[@ozturk11universite].Ancak bu denli lezzetli ve pratik olan fastfood ürünlerinin besin içerikleri sebebiyle fazla tüketimi sonucu insan sağlığına ciddi zararları vardır.Tüketilen bu besinlerin miktarı ve bileşiminin kardiyovasküler hastalıklar, kanser, şişmanlık gibi birçok kronik hastalığın gelişmesine neden olduğu bilinmektedir[@rakiciouglu2000ankara]. Bu ürünlerin içermiş olduğu besin değerleri normal bir insanın alması gereken besin değerlerinin çok üstünde olmasının yanında bazı zararlı besin içeriklerini de barındırıyor olması fazla tüketimi sonucu insan sağlığını tehlikeye atıyor. Özellikle içeriğindeki yağ ve sodyum oranlarının yüksek olması pek çok hastalığın gelişimine etki ediyor.Bu ürünler diğer pek çok besin türlerinden daha fazla enerji, yağ ve sodyuma sahiptir[@wu2013s]. BU çalışmada fastfood ürünlerinin içermiş olduğu besin değerlerini ve insan sağlığına olan etkilerini analiz etmeye çalışacağım.
 
-
-Proje ödevinizde yer alan başlıkların bu metinde yer alan başlıkları kesinlikle içermesi gerekmektedir. Burada kullanılan başlıklar haricinde farklı alt başlıklar da kullanabilirsiniz. Projenizi yazarken bu dosyayı taslak olarak kullanıp içeriğini projenize uyarlayınız.
 
 ## Çalışmanın Amacı
-Bu bölümde yaptığınız çalışmanın amacından ve öneminden birkaç paragraf ile bahsediniz.
+İnsan sağlığının kalitesi üzerinde tükettiği gıdalar çok büyük bir rol oynar. insan sağlığına faydalı içeriği olan besinleri yeterli oranda almak insan yaşamını olumlu etkilerken; fastfood gibi besin içeriği zararlı olan besinler de çok fazla tüketildiği taktirde insan yaşamını olumsuz etkiler. Yani insanların tüketmiş olduğu besinlerin içeriği ve değeri insan sağlığı ve kalitesi üzerinde çok önemli bir rol oynar. Github'da tidyverse adlı kullanıcının reposundan bulduğum, 515 gözlem ve 18 değişkeni içinde barındıran ve bazı fastfood restorantlarının ürünlerini ve besin içeriğini gösteren veri setiyle bu ürünlerin besin içeriklerini inceleyeceğim. Bu doğrultuda insan sağlığı için hangi fastfood ürünlerinin ne denli tüketilebileceğini veya tüketilmemesi gerektiğini aynı zamanda hangi restorantın ürünlerinin daha zararlı olduğunu veya tüketilebilir olduğunu bulabileceğiz. Veri setindeki ürünlerin içeriğini ve değerlerini inceleyip bu doğrultuda hem restorantları hem de ürünlerin insan sağlığına ne denli etkilerinin olacağını karşılaştırabileceğim bir analiz yapacağım.
 
 ## Literatür 
 
-Bu bölümde konu ile ilgili olarak okuduğunuz makaleleri referans vererek tartışınız. **Her makaleyi ayrı başlık altında tek tek özetlemeyiniz.** Literatür taramasında **en az altı** makaleye atıf yapılması ve bu makalelerden **en az ikisinin İngilizce** olması gerekmektedir.
+Bir nsanın sağlığını ve yaşam kalitesini belirleyen en önemli faktör tükettiği besinlerdir. Besinlerin birçok hastalığın gelişmesinde ve önlenmesinde önemli bir rol oynadığı iyi bilinmektedir[@jaworowska2013nutritional]. Zararlı içeriği olmayan besinleri tüketen insanlar daha daha sağlıklı bir hayat sürer. Ancak sağlığı olumsuz etkileyebilecek çok az tüketilmesi ya da hiç tüketilmemesi gereken bazı besinler de tüketildiğinde çok ciddi sağlık sorunlarına neden olabilir.Bu zararlı besinlerin başında fastfoodlar gelir. Çok lezzetli ve pratik olmasının yanında kolay ulaşılablir olması insanlar için tüketimi daha cazip bir hale geliyor.Ayrıca fastfood ürünlerinin fiyatınında uygun olması bu ürünleri daha da çekici kılıyor[@adnan17yerli]. Ancak pek çok fastfood ürünü içerdiği zararlı maddeler yüzünden fazla tüketildiğinde insan sağlığını olumsuz etkiliyor. Özellikle içerisindeki yüksek yağ ve sodyum, basit şekerler ve yüksek karbonhidratlar insan sağlığına ciddi zararlar veriyor. Fastfood sisteminin sodyum, kolesterol ve yağ (Özellikle doymuş yağ) tüketim miktarı fazla olmasına karşılık kalsiyum, A ve C vitamini ve posa içeriği bakımından yetersizdir[@elmaciouglu1996hizli]. Özellikle fastfood çocuk menülerindeki özel içecekler diğer normal menüdeki içeceklere göre daha fazla yağ, doymuş yağ ve karbonhidrat içeriyor[@wu2013s].Çocukların beslenmesinde diyetin sodyum içeriğinin düşük olması hipertansiyon, kardiyovasküler hastalıklara yakalanma riskini ve böbrek solit yükünü azaltmaktadır[@rakiciouglu2000ankara]. Bu yüzden çocukların beslenmelerinde daha dikkatli olunması gerekir. Bu yüzden okullarda bile düşük sodyum ve düşük yağlı menüleri içeren beslenme programların uygulanması ve çocukların aralarda tükettikleri fastfood besinleri seçerken de daha bilinçli davranmaları konusunda eğitilmeleri gerekir[@rakiciouglu2000ankara]. Ayrıca fast-food ürünlerinin yanında ağırlıklı olarak gazlı içeceklerde tüketildiği için sağlığa daha da zararlı bir hale geliyor[@ozturk11universite].Yağ, sağlık için gereklidir ve günlük beslenmede mutlaka yeterli miktarda yağ bulunmalıdır. Ancak aşırı yağ tüketimi, şişmanlık, koroner kalp hastalıkları (KKH) ve çeşitli kanser oluşum riskini artırır[@yucecan2008optimal] Aynı zamanda yağ açısından yüksek besinler daha yüksek bir obezite gelişme riskine yol açar[@jaworowska2013nutritional]. Düşük yağlı ve düşük şekerli besinlerin tüketilmesi vücut ağırlığının kontrolü açısından da katkıda bulunmaktadır[@rakiciouglu2000ankara]. Aynı şekilde fazla sodyum hipertansiyona; kolesterol ve doymuş yağ asitleri ise kalp ve damar hastalıklarına neden olur[@elmaciouglu1996hizli]. Bu yüzden besinler tüketilirken içeriğine çok dikkat edilmelidir.Ancak fastfood tüketen insanların büyük çoğunluğu fast-food tüketim alışkanlığının insan sağlığı üzerinde olumsuz etkileri olduğunu düşünmesine rağmen fast-food tüketiminin olumsuz etkilerine karşı gelecekte önlem almayı düşündüğü tespit edilen kişilerin sayısı bir hayli azdır [@ozturk11universite].Sağlıklı beslenmede öncelikle toplam yağ tüketiminin azaltılması, kolesterol alımının sınırlandırılması, orta derecede tuz tüketimi, sebze ve meyve tüketiminin arttırılması, basit şekerlerin yerine kompleks karbonhidratların tüketilmesi önerilmektedir[@rakiciouglu2000ankara].Yani münkün oldukça optimal beslenilmelidir.Optimal beslenmede;“minumum hastalık riski, maksimum iyi hal/sağlık" dolayısıyla maksimum sağlıklı yaşam” hedeflenmektedir[@yucecan2008optimal].
 
 # Veri 
-Bu bölümde çalışmanızda kullandığınız veri setinin kaynağını, ham veri üzerinde herhangi bir işlem yaptıysanız bu işlemleri ve veri seti ile ilgili özet istatistikleri tartışınız. Bu bölümde tüm değişkenlere ait özet istatistikleri (ortalama, standart sapma, minimum, maksimum, vb. değerleri) içeren bir tablo (Tablo \ref{tab:ozet}) olması zorunludur. Tablolarınıza gerekli göndermeleri bir önceki cümlede gösterildiği gibi yapınız. [@perkins:1991]
 
-Analize ait R kodları bu bölümde başlamalıdır. Bu bölümde veri setini R'a aktaran ve özet istatistikleri üreten kodlar yer almalıdır.
 
 ```{r}
 library(tidyverse)
 library(here)
-survey <- read_csv(here("../data/survey.csv"))
+dt <- read_csv(here("./data/dt.csv"))
 ```
 
-Rmd dosyasında kod bloklarının bazılarında kod seçeneklerinin düzenlendiğine dikkat edin. 
+ 
 
 ```{r, echo=FALSE}
 library(xtable) 
-# devtools::install_github("emraher/summarytools")
+# devtools::install_github("uguroruc/summarytools")
 library(summarytools)
 st_options(lang = "tr")
 ```
 
-`echo=FALSE` seçeneği ile kodların türetilen pdf dosyasında görünmesini engelleyin ve sonuçlarınızı tablo halinde rapor edin.
+
+
 
 ```{r results='asis', echo=FALSE}
-survey %>%
-  select("sex", "credits", "handedness", "height", "handspan") %>% 
+dt %>%
+  select("calories", "sodium", "sugar", "cal_fat", "total_fat", "trans_fat", "cholesterol", "sat_fat", "total_carb") %>% 
   descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>% 
   xtable(caption = "Özet İstatistikler",
          label = "tab:ozet",
@@ -93,33 +82,50 @@ survey %>%
 
 
 # Yöntem ve Veri Analizi
-Bu bölümde veri setindeki bilgileri kullanarak çalışmanın amacına ulaşmak için kullanılacak yöntemleri açıklayın. Derste işlenen/işlenecek olan analiz yöntemlerinden (Hipotez testleri ve korelasyon analizi gibi) çalışmanın amacına ve veri setine uygun olanlar bu bölümde kullanılmalıdır. [@newbold:2003; @ozsoy:2010; @ozsoy:2014]
 
-Örneğin, regresyon analizi gerçekleştiriyorsanız tahmin ettiğiniz denklemi bu bölümde tartışınız. Denklemlerinizi ve matematiksel ifadeleri $LaTeX$ kullanarak yazınız.
-
-$$
-Y_t = \beta_0 + \beta_N N_t + \beta_P P_t + \beta_I I_t + \varepsilon_t
-$$
-
-Bu bölümde analize ilişkin farklı tablolar ve grafiklere yer verilmelidir. Çalışmanıza uygun biçimde histogram, nokta grafiği (Şekil \@ref(fig:plot) gibi), kutu grafiği, vb. grafikleri bu bölüme ekleyiniz. Şekillerinize de gerekli göndermeleri bir önceki cümlede gösterildiği gibi yapınız.
-
-
-```{r plot, fig.align='center', fig.cap='Muhteşem Bir Grafik'}
-survey %>% 
-  ggplot(aes(x = handedness, y = handspan)) +
-  geom_point() +
-  geom_smooth() +
-  scale_x_continuous("Handedness") + 
-  scale_y_continuous("Handspan")
+```{r}
+ggplot(dt, aes(x = calories)) +
+  geom_histogram() +
+  scale_x_continuous(name = "mcdonalds") +
+  scale_y_continuous(name = "arby") +
+  ggtitle("mcdonalds için Histogram")
 ```
 
 
+```{r}
+dt %>% 
+  na.omit() %>% 
+  ggplot(aes(x = calories, y = sugar)) +
+  geom_boxplot() +
+  labs(x = "kalori",
+       y = "seker") 
+```
+
+
+```{r}
+dt %>% 
+  na.omit() %>% 
+  ggplot(aes(x = total_fat, y = calories)) +
+  geom_boxplot() +
+  labs(x = "toplam yag",
+       y = "kalori")
+```
+```{r}
+calories <- tibble(may = c(2166, 1568, 2233, 1882, 2019),
+                   sep = c(2279, 2075, 2131, 2009, 1793), 
+                   dec = c(2226, 2154, 2583, 2010, 2190)) %>% 
+  pivot_longer(everything(),
+               names_to = "month",
+               values_to = "cal")
+
+calories %>% 
+  group_by(month) %>% 
+  summarise(mean_cal = mean(cal)) %>% 
+  bind_rows(tibble(month = "all", mean_cal = mean(calories$cal)))
+```
+
 # Sonuç
-Bu bölümde çalışmanızın sonuçlarını özetleyiniz. Sonuçlarınızın başlangıçta belirlediğiniz araştırma sorusuna ne derece cevap verdiğini ve ileride bu çalışmanın nasıl geliştirilebileceğini tartışınız.
-
-**Kaynakça bölümü Rmarkdown tarafından otomatik olarak oluşturulmaktadır. Taslak dosyada Kaynakça kısmında herhangi bir değişikliğe gerek yoktur.** 
-
-**_Taslakta bu cümleden sonra yer alan hiçbir şey silinmemelidir._**
+İncelenen makaleler doğrultusunda fastfood ürünlerninin fazla tüketiminin insan sağlığını obezite,çeşitli kalp rahatsızlıkları, kolesterol, şeker gibi hastalıkları tetikleyerek ciddi derecede tehlikeye attığı anlaşılmıştır. Bu ürünlerin içerisinde sağlığa faydalı besinler bulnmasına rağmen zararlı besinlerin daha çok olması bu ürünlerin tüketimi halinde insan sağlığını olumsuz etkilediği görülmüştür.Veri setindeki değerler de baz alınarak fastfood restorantlarında satılan ürünlerin değerleri çeşitli grafikler ve testlerle analiz edilmiş olup içerisindeki özellikle insan sağlığına en çok zarar veren trans yağ, toplam yağ, şeker , sodyum ve kalori değerleri üzerinde durulmuş ve bu değerleri en çok barındıran ürünler tespit edilmeye çalışılmıştır. Bu değerler doğrultusunda aslında fastfood ürünlerini mümkün oldukça tüketmemek veya tüketimini minimum  bir seviyede tutmak gerektiği anlaşılmıştır. Sağlıklı bir yaşam için kalori, trans yağ, sodyum, şeker gibi besinleri içerisinde çokça barındıran fastfood ürünlerini tüketmek yerine bu değerleri en az seviyede barındıran ürünlerin tercih edilmesi gerektiği tespit edilmiştir.
 
 \newpage
 # Kaynakça {#references}

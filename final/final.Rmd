@@ -1,7 +1,7 @@
 ---
 title: "Fastfood Restorantlarındaki Ürünlerin Besin içeriği ve İnsan sağlığına Olan Etkilerinin Analizi"
 author: 
-  - Uğur Oruç[^1]
+  - Uğur Oruç*
 bibliography: ../bibliography/biblio.bib
 csl: ../csl/apa-tr.csl
 header-includes:
@@ -26,31 +26,32 @@ fontsize: 12pt
 biblio-style: apalike
 abstract: |
 
- Bu çalışmada fastfood restorantlarının satmış olduğu fast food ürünlerinin kalori, toplam yağ, sodyum, trans yağ , şeker gibi besin içeriği değerleri incelenerek hangi restorantın sattığı ürünlerin insan sağlığı üzerinde daha zararlı etkilerinin olduğu anlaşılmaya çalışılmıştır. Bu doğrultuda literatür taraması yapılmış ve veri setindeki veriler baz alınarak grafikler oluşturulmuştur. Anova testi yapılarak bulgular desteklenmiş ve veri seti analiz edilmiştir. 
+ Bu çalışmada fastfood restorantlarının satmış olduğu fast food ürünlerinin kalori, toplam yağ, sodyum, trans yağ , şeker gibi besin içeriği değerleri incelenerek bu restorantlatın sattığı ürünlerin insan sağlığı üzerinde ne denli etkilerinin olduğu anlaşılmaya çalışılmıştır. Bu doğrultuda literatür taraması yapılmış ve veri setindeki veriler baz alınarak grafikler oluşturulmuştur.veri seti t- testi ile analiz edilerek bulgular desteklenmiştir. 
 ---
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FALSE)
 ```
 
 <!-- ======================================================================= -->
-<!-- ============================== NOTLAR ================================= -->
-<!-- ======================================================================= -->
-[^1]: 18080432, [Github Repo](https://github.com/uguroruc/FINAL-SINAVI)
 
+<!-- ============================== NOTLAR ================================= -->
+
+<!-- ======================================================================= -->
 
 # Giriş
-Son zamanlarda hem lezzettli olması hem de pratik olması sebebiyle fastfood ürünleri özellikle günümüzde çok fazla rağbet görüyor. Bu nedenle günümüzde pek çok çeşit fastfood restorantı mevcuttur. Fastfood sistemi dünyada ilk kez Amerika’da McDonald kardeşlerin 1850’de Hamburg yöresinden gelen işçilerin tanıttığı hamburgeri temel alan fastfood sistemini 1950 yılında isletmeye açmaları ile başladığı söylenebilir[@elmaciouglu1996hizli]. 1950'li yıllarda McDonald ile başlayan fastfood serüveni popülerleşerek günümüze kadar gelmiştir. Günümüzde ise binlerce çeşit fastfood restorantı vardır. Ayrıca budenli popüler olamsının nedenleri arasında fastfood işletmelerinin popülerlik, standart lezzet ve kaliteye sahip olması ve fiziksel mekan özellikleri de büyük bir rol oynuyor[@adnan17yerli].Bu yüzden  günümüzde pek çok insan evde yemek yapmaya üşendiği veya pek vakti olmadığı için bu ürünleri sipariş vererek veya bizzat restoranta giderek  tüketiyor. Yapılan araştırmalar doğrultusunda Amerika'da temizlik ve yemek yapma süreleri karşılaştırıldığında yemek yapma süresinin çok az olduğu tespit edilmiştir[@jaworowska2013nutritional]. Çünkü Amerika'da fast food ürünleri insanlar tarafından çok tüketildiği için evde yemek yapma süresi çok az.Özellikle fastfood ürünlerinin en çok öğrenci grupları tercih ediyor.Araştırma sonuçlarına göre, öğrencilerin büyük çoğunluğu (%74,5) fast-food tüketmektedir[@ozturk11universite].Ancak bu denli lezzetli ve pratik olan fastfood ürünlerinin besin içerikleri sebebiyle fazla tüketimi sonucu insan sağlığına ciddi zararları vardır.Tüketilen bu besinlerin miktarı ve bileşiminin kardiyovasküler hastalıklar, kanser, şişmanlık gibi birçok kronik hastalığın gelişmesine neden olduğu bilinmektedir[@rakiciouglu2000ankara]. Bu ürünlerin içermiş olduğu besin değerleri normal bir insanın alması gereken besin değerlerinin çok üstünde olmasının yanında bazı zararlı besin içeriklerini de barındırıyor olması fazla tüketimi sonucu insan sağlığını tehlikeye atıyor. Özellikle içeriğindeki yağ ve sodyum oranlarının yüksek olması pek çok hastalığın gelişimine etki ediyor.Bu ürünler diğer pek çok besin türlerinden daha fazla enerji, yağ ve sodyuma sahiptir[@wu2013s]. BU çalışmada fastfood ürünlerinin içermiş olduğu besin değerlerini ve insan sağlığına olan etkilerini analiz etmeye çalışacağım.
 
+Son zamanlarda hem lezzettli olması hem de pratik olması sebebiyle fastfood ürünleri özellikle günümüzde çok fazla rağbet görüyor. Bu nedenle günümüzde pek çok çeşit fastfood restorantı mevcuttur. Fastfood sistemi dünyada ilk kez Amerika'da McDonald kardeşlerin 1850'de Hamburg yöresinden gelen işçilerin tanıttığı hamburgeri temel alan fastfood sistemini 1950 yılında isletmeye açmaları ile başladığı söylenebilir[@elmaciouglu1996hizli]. 1950'li yıllarda McDonald ile başlayan fastfood serüveni popülerleşerek günümüze kadar gelmiştir. Günümüzde ise binlerce çeşit fastfood restorantı vardır. Ayrıca budenli popüler olamsının nedenleri arasında fastfood işletmelerinin popülerlik, standart lezzet ve kaliteye sahip olması ve fiziksel mekan özellikleri de büyük bir rol oynuyor[@adnan17yerli].Bu yüzden günümüzde pek çok insan evde yemek yapmaya üşendiği veya pek vakti olmadığı için bu ürünleri sipariş vererek veya bizzat restoranta giderek tüketiyor. Yapılan araştırmalar doğrultusunda Amerika'da temizlik ve yemek yapma süreleri karşılaştırıldığında yemek yapma süresinin çok az olduğu tespit edilmiştir[@jaworowska2013nutritional]. Çünkü Amerika'da fast food ürünleri insanlar tarafından çok tüketildiği için evde yemek yapma süresi çok az.Özellikle fastfood ürünlerinin en çok öğrenci grupları tercih ediyor.Araştırma sonuçlarına göre, öğrencilerin büyük çoğunluğu (%74,5) fast-food tüketmektedir[@ozturk11universite].Ancak bu denli lezzetli ve pratik olan fastfood ürünlerinin besin içerikleri sebebiyle fazla tüketimi sonucu insan sağlığına ciddi zararları vardır.Tüketilen bu besinlerin miktarı ve bileşiminin kardiyovasküler hastalıklar, kanser, şişmanlık gibi birçok kronik hastalığın gelişmesine neden olduğu bilinmektedir[@rakiciouglu2000ankara]. Bu ürünlerin içermiş olduğu besin değerleri normal bir insanın alması gereken besin değerlerinin çok üstünde olmasının yanında bazı zararlı besin içeriklerini de barındırıyor olması fazla tüketimi sonucu insan sağlığını tehlikeye atıyor. Özellikle içeriğindeki yağ ve sodyum oranlarının yüksek olması pek çok hastalığın gelişimine etki ediyor.Bu ürünler diğer pek çok besin türlerinden daha fazla enerji, yağ ve sodyuma sahiptir[@wu2013s]. BU çalışmada fastfood ürünlerinin içermiş olduğu besin değerlerini ve insan sağlığına olan etkilerini analiz etmeye çalışacağım.
 
 ## Çalışmanın Amacı
+
 İnsan sağlığının kalitesi üzerinde tükettiği gıdalar çok büyük bir rol oynar. insan sağlığına faydalı içeriği olan besinleri yeterli oranda almak insan yaşamını olumlu etkilerken; fastfood gibi besin içeriği zararlı olan besinler de çok fazla tüketildiği taktirde insan yaşamını olumsuz etkiler. Yani insanların tüketmiş olduğu besinlerin içeriği ve değeri insan sağlığı ve kalitesi üzerinde çok önemli bir rol oynar. Github'da tidyverse adlı kullanıcının reposundan bulduğum, 515 gözlem ve 18 değişkeni içinde barındıran ve bazı fastfood restorantlarının ürünlerini ve besin içeriğini gösteren veri setiyle bu ürünlerin besin içeriklerini inceleyeceğim. Bu doğrultuda insan sağlığı için hangi fastfood ürünlerinin ne denli tüketilebileceğini veya tüketilmemesi gerektiğini aynı zamanda hangi restorantın ürünlerinin daha zararlı olduğunu veya tüketilebilir olduğunu bulabileceğiz. Veri setindeki ürünlerin içeriğini ve değerlerini inceleyip bu doğrultuda hem restorantları hem de ürünlerin insan sağlığına ne denli etkilerinin olacağını karşılaştırabileceğim bir analiz yapacağım.
 
-## Literatür 
+## Literatür
 
-Bir nsanın sağlığını ve yaşam kalitesini belirleyen en önemli faktör tükettiği besinlerdir. Besinlerin birçok hastalığın gelişmesinde ve önlenmesinde önemli bir rol oynadığı iyi bilinmektedir[@jaworowska2013nutritional]. Zararlı içeriği olmayan besinleri tüketen insanlar daha daha sağlıklı bir hayat sürer. Ancak sağlığı olumsuz etkileyebilecek çok az tüketilmesi ya da hiç tüketilmemesi gereken bazı besinler de tüketildiğinde çok ciddi sağlık sorunlarına neden olabilir.Bu zararlı besinlerin başında fastfoodlar gelir. Çok lezzetli ve pratik olmasının yanında kolay ulaşılablir olması insanlar için tüketimi daha cazip bir hale geliyor.Ayrıca fastfood ürünlerinin fiyatınında uygun olması bu ürünleri daha da çekici kılıyor[@adnan17yerli]. Ancak pek çok fastfood ürünü içerdiği zararlı maddeler yüzünden fazla tüketildiğinde insan sağlığını olumsuz etkiliyor. Özellikle içerisindeki yüksek yağ ve sodyum, basit şekerler ve yüksek karbonhidratlar insan sağlığına ciddi zararlar veriyor. Fastfood sisteminin sodyum, kolesterol ve yağ (Özellikle doymuş yağ) tüketim miktarı fazla olmasına karşılık kalsiyum, A ve C vitamini ve posa içeriği bakımından yetersizdir[@elmaciouglu1996hizli]. Özellikle fastfood çocuk menülerindeki özel içecekler diğer normal menüdeki içeceklere göre daha fazla yağ, doymuş yağ ve karbonhidrat içeriyor[@wu2013s].Çocukların beslenmesinde diyetin sodyum içeriğinin düşük olması hipertansiyon, kardiyovasküler hastalıklara yakalanma riskini ve böbrek solit yükünü azaltmaktadır[@rakiciouglu2000ankara]. Bu yüzden çocukların beslenmelerinde daha dikkatli olunması gerekir. Bu yüzden okullarda bile düşük sodyum ve düşük yağlı menüleri içeren beslenme programların uygulanması ve çocukların aralarda tükettikleri fastfood besinleri seçerken de daha bilinçli davranmaları konusunda eğitilmeleri gerekir[@rakiciouglu2000ankara]. Ayrıca fast-food ürünlerinin yanında ağırlıklı olarak gazlı içeceklerde tüketildiği için sağlığa daha da zararlı bir hale geliyor[@ozturk11universite].Yağ, sağlık için gereklidir ve günlük beslenmede mutlaka yeterli miktarda yağ bulunmalıdır. Ancak aşırı yağ tüketimi, şişmanlık, koroner kalp hastalıkları (KKH) ve çeşitli kanser oluşum riskini artırır[@yucecan2008optimal] Aynı zamanda yağ açısından yüksek besinler daha yüksek bir obezite gelişme riskine yol açar[@jaworowska2013nutritional]. Düşük yağlı ve düşük şekerli besinlerin tüketilmesi vücut ağırlığının kontrolü açısından da katkıda bulunmaktadır[@rakiciouglu2000ankara]. Aynı şekilde fazla sodyum hipertansiyona; kolesterol ve doymuş yağ asitleri ise kalp ve damar hastalıklarına neden olur[@elmaciouglu1996hizli]. Bu yüzden besinler tüketilirken içeriğine çok dikkat edilmelidir.Ancak fastfood tüketen insanların büyük çoğunluğu fast-food tüketim alışkanlığının insan sağlığı üzerinde olumsuz etkileri olduğunu düşünmesine rağmen fast-food tüketiminin olumsuz etkilerine karşı gelecekte önlem almayı düşündüğü tespit edilen kişilerin sayısı bir hayli azdır [@ozturk11universite].Sağlıklı beslenmede öncelikle toplam yağ tüketiminin azaltılması, kolesterol alımının sınırlandırılması, orta derecede tuz tüketimi, sebze ve meyve tüketiminin arttırılması, basit şekerlerin yerine kompleks karbonhidratların tüketilmesi önerilmektedir[@rakiciouglu2000ankara].Yani münkün oldukça optimal beslenilmelidir.Optimal beslenmede;“minumum hastalık riski, maksimum iyi hal/sağlık" dolayısıyla maksimum sağlıklı yaşam” hedeflenmektedir[@yucecan2008optimal].
+Bir nsanın sağlığını ve yaşam kalitesini belirleyen en önemli faktör tükettiği besinlerdir. Besinlerin birçok hastalığın gelişmesinde ve önlenmesinde önemli bir rol oynadığı iyi bilinmektedir[@jaworowska2013nutritional]. Zararlı içeriği olmayan besinleri tüketen insanlar daha daha sağlıklı bir hayat sürer. Ancak sağlığı olumsuz etkileyebilecek çok az tüketilmesi ya da hiç tüketilmemesi gereken bazı besinler de tüketildiğinde çok ciddi sağlık sorunlarına neden olabilir.Bu zararlı besinlerin başında fastfoodlar gelir. Çok lezzetli ve pratik olmasının yanında kolay ulaşılablir olması insanlar için tüketimi daha cazip bir hale geliyor.Ayrıca fastfood ürünlerinin fiyatınında uygun olması bu ürünleri daha da çekici kılıyor[@adnan17yerli]. Ancak pek çok fastfood ürünü içerdiği zararlı maddeler yüzünden fazla tüketildiğinde insan sağlığını olumsuz etkiliyor. Özellikle içerisindeki yüksek yağ ve sodyum, basit şekerler ve yüksek karbonhidratlar insan sağlığına ciddi zararlar veriyor. Fastfood sisteminin sodyum, kolesterol ve yağ (Özellikle doymuş yağ) tüketim miktarı fazla olmasına karşılık kalsiyum, A ve C vitamini ve posa içeriği bakımından yetersizdir[@elmaciouglu1996hizli]. Özellikle fastfood çocuk menülerindeki özel içecekler diğer normal menüdeki içeceklere göre daha fazla yağ, doymuş yağ ve karbonhidrat içeriyor[@wu2013s].Çocukların beslenmesinde diyetin sodyum içeriğinin düşük olması hipertansiyon, kardiyovasküler hastalıklara yakalanma riskini ve böbrek solit yükünü azaltmaktadır[@rakiciouglu2000ankara]. Bu yüzden çocukların beslenmelerinde daha dikkatli olunması gerekir. Bu yüzden okullarda bile düşük sodyum ve düşük yağlı menüleri içeren beslenme programların uygulanması ve çocukların aralarda tükettikleri fastfood besinleri seçerken de daha bilinçli davranmaları konusunda eğitilmeleri gerekir[@rakiciouglu2000ankara]. Ayrıca fast-food ürünlerinin yanında ağırlıklı olarak gazlı içeceklerde tüketildiği için sağlığa daha da zararlı bir hale geliyor[@ozturk11universite].Yağ, sağlık için gereklidir ve günlük beslenmede mutlaka yeterli miktarda yağ bulunmalıdır. Ancak aşırı yağ tüketimi, şişmanlık, koroner kalp hastalıkları (KKH) ve çeşitli kanser oluşum riskini artırır[@yucecan2008optimal] Aynı zamanda yağ açısından yüksek besinler daha yüksek bir obezite gelişme riskine yol açar[@jaworowska2013nutritional]. Düşük yağlı ve düşük şekerli besinlerin tüketilmesi vücut ağırlığının kontrolü açısından da katkıda bulunmaktadır[@rakiciouglu2000ankara]. Aynı şekilde fazla sodyum hipertansiyona; kolesterol ve doymuş yağ asitleri ise kalp ve damar hastalıklarına neden olur[@elmaciouglu1996hizli]. Bu yüzden besinler tüketilirken içeriğine çok dikkat edilmelidir.Ancak fastfood tüketen insanların büyük çoğunluğu fast-food tüketim alışkanlığının insan sağlığı üzerinde olumsuz etkileri olduğunu düşünmesine rağmen fast-food tüketiminin olumsuz etkilerine karşı gelecekte önlem almayı düşündüğü tespit edilen kişilerin sayısı bir hayli azdır [@ozturk11universite].Sağlıklı beslenmede öncelikle toplam yağ tüketiminin azaltılması, kolesterol alımının sınırlandırılması, orta derecede tuz tüketimi, sebze ve meyve tüketiminin arttırılması, basit şekerlerin yerine kompleks karbonhidratların tüketilmesi önerilmektedir[@rakiciouglu2000ankara].Yani münkün oldukça optimal beslenilmelidir.Optimal beslenmede;"minumum hastalık riski, maksimum iyi hal/sağlık" dolayısıyla maksimum sağlıklı yaşam" hedeflenmektedir[@yucecan2008optimal].
 
-# Veri 
-
+# Veri
 
 ```{r}
 library(tidyverse)
@@ -58,17 +59,12 @@ library(here)
 dt <- read_csv(here("./data/dt.csv"))
 ```
 
- 
-
 ```{r, echo=FALSE}
 library(xtable) 
 # devtools::install_github("uguroruc/summarytools")
 library(summarytools)
 st_options(lang = "tr")
 ```
-
-
-
 
 ```{r results='asis', echo=FALSE}
 dt %>%
@@ -80,10 +76,9 @@ dt %>%
   print(booktabs = TRUE, comment = FALSE, caption.placement = "top")
 ```
 
-
 # Yöntem ve Veri Analizi
 
-```{r}
+```{r, echo=FALSE}
 ggplot(dt, aes(x = calories)) +
   geom_histogram() +
   scale_x_continuous(name = "mcdonalds") +
@@ -91,8 +86,7 @@ ggplot(dt, aes(x = calories)) +
   ggtitle("mcdonalds için Histogram")
 ```
 
-
-```{r}
+```{r, echo=FALSE}
 dt %>% 
   na.omit() %>% 
   ggplot(aes(x = calories, y = sugar)) +
@@ -101,33 +95,64 @@ dt %>%
        y = "seker") 
 ```
 
-
-```{r}
+```{r, echo=FALSE}
 dt %>% 
   na.omit() %>% 
   ggplot(aes(x = total_fat, y = calories)) +
   geom_boxplot() +
-  labs(x = "toplam yag",
+  labs(x = "toplam yağ",
        y = "kalori")
 ```
-```{r}
-calories <- tibble(may = c(2166, 1568, 2233, 1882, 2019),
-                   sep = c(2279, 2075, 2131, 2009, 1793), 
-                   dec = c(2226, 2154, 2583, 2010, 2190)) %>% 
-  pivot_longer(everything(),
-               names_to = "month",
-               values_to = "cal")
 
-calories %>% 
-  group_by(month) %>% 
-  summarise(mean_cal = mean(cal)) %>% 
-  bind_rows(tibble(month = "all", mean_cal = mean(calories$cal)))
+```{r, echo=FALSE}
+ggplot(dt) +
+  aes(x = calories) +
+  geom_histogram()
 ```
 
+```{r, echo=FALSE}
+dt %>% 
+  select(calories, sodium, sugar) %>% 
+  GGally::ggpairs()
+```
+
+```{r, echo=FALSE}
+dt %>% 
+ggplot() +
+  aes(x = cal_fat, y = trans_fat) +
+  geom_point() 
+```
+
+```{r, echo=FALSE}
+t.test(dt$total_fat, alternative = "two.sided", mu = 20)
+```
+
+```{r, echo=FALSE}
+t.test(dt$sugar, alternative = "two.sided", mu = 3)
+```
+
+```{r, echo=FALSE}
+t.test(dt$calories, alternative = "two.sided", mu = 530.91)
+```
+
+```{r, echo=FALSE}
+t.test(dt$sodium, alternative = "two.sided", mu = 1246)
+```
+
+
+
+
+
+
+
+
 # Sonuç
-İncelenen makaleler doğrultusunda fastfood ürünlerninin fazla tüketiminin insan sağlığını obezite,çeşitli kalp rahatsızlıkları, kolesterol, şeker gibi hastalıkları tetikleyerek ciddi derecede tehlikeye attığı anlaşılmıştır. Bu ürünlerin içerisinde sağlığa faydalı besinler bulnmasına rağmen zararlı besinlerin daha çok olması bu ürünlerin tüketimi halinde insan sağlığını olumsuz etkilediği görülmüştür.Veri setindeki değerler de baz alınarak fastfood restorantlarında satılan ürünlerin değerleri çeşitli grafikler ve testlerle analiz edilmiş olup içerisindeki özellikle insan sağlığına en çok zarar veren trans yağ, toplam yağ, şeker , sodyum ve kalori değerleri üzerinde durulmuş ve bu değerleri en çok barındıran ürünler tespit edilmeye çalışılmıştır. Bu değerler doğrultusunda aslında fastfood ürünlerini mümkün oldukça tüketmemek veya tüketimini minimum  bir seviyede tutmak gerektiği anlaşılmıştır. Sağlıklı bir yaşam için kalori, trans yağ, sodyum, şeker gibi besinleri içerisinde çokça barındıran fastfood ürünlerini tüketmek yerine bu değerleri en az seviyede barındıran ürünlerin tercih edilmesi gerektiği tespit edilmiştir.
+
+İncelenen makaleler doğrultusunda fastfood ürünlerninin fazla tüketiminin insan sağlığını obezite,çeşitli kalp rahatsızlıkları, kolesterol, şeker gibi hastalıkları tetikleyerek ciddi derecede tehlikeye attığı anlaşılmıştır. Bu ürünlerin içerisinde sağlığa faydalı besinler bulnmasına rağmen zararlı besinlerin daha çok olması bu ürünlerin tüketimi halinde insan sağlığını olumsuz etkilediği görülmüştür.Veri setindeki değerler de baz alınarak fastfood restorantlarında satılan ürünlerin değerleri çeşitli grafikler ve testlerle analiz edilmiş olup içerisindeki özellikle insan sağlığına en çok zarar veren trans yağ, toplam yağ, şeker , sodyum ve kalori değerleri üzerinde durulmuş ve bu değerleri en çok barındıran ürünler tespit edilmeye çalışılmıştır. Bu değerler doğrultusunda aslında fastfood ürünlerini mümkün oldukça tüketmemek veya tüketimini minimum bir seviyede tutmak gerektiği anlaşılmıştır. Sağlıklı bir yaşam için kalori, trans yağ, sodyum, şeker gibi besinleri içerisinde çokça barındıran fastfood ürünlerini tüketmek yerine bu değerleri en az seviyede barındıran ürünlerin tercih edilmesi gerektiği tespit edilmiştir.
 
 \newpage
-# Kaynakça {#references}
-<div id="refs"></div>
 
+# Kaynakça {#references}
+
+::: {#refs}
+:::
